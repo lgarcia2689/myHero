@@ -1,36 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import {BASE_URL} from './constants/indexMyHero'
-import Character from './components/Character'
+import React from "react";
+import { Route, Link, Switch } from 'react-router-dom'
+import Home from './Home'
+import Characters from './Characters'
+import './App.css'
+
 const App = () => {
-  const [character, setCharacter] = useState([])
-
-  useEffect(() => {
-    axios.get(`${BASE_URL}`)
-    .then(res => {
-      setCharacter(res.data.result)
-      console.log(res.data.result)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  },[])
-
-
-
-  
   return (
-    <div className="App">
-      <h1 className="Header">My Hero Academia</h1>
-      <div className = 'container'>
-      {
-        character.map( fr =>{
-          return <Character character={fr}/>
-        }
-        )
-      }
-      </div>
+    <div>
+      <h1 className = 'mainHeader'>My Hero Academia</h1>
+
+      <nav>
+        <div className='navLinks'>
+          {/* Links to navigate us Home (`/`) and Characters (`/Characters`) */}
+          <button id = 'homeButton' className = 'homeButton'><Link to="/">Home </Link></button>
+          <button id = 'characterButton' className = 'characterButton'><Link to="/Characters">Characters</Link></button>
+        </div>
+      </nav>
+
+        <Switch>
+          <Route path="/Characters">
+            <Characters/>
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+
     </div>
   );
-}
+};
 export default App;
