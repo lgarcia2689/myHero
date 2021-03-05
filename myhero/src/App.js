@@ -1,11 +1,12 @@
 import React from "react";
-import { Route, Link, Switch } from 'react-router-dom'
+import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
 import Home from './Home'
 import Characters from './Characters'
 import './App.css'
 
 const App = () => {
   return (
+    <Router>
     <div>
       <h1 className = 'mainHeader'>My Hero Academia</h1>
 
@@ -16,7 +17,7 @@ const App = () => {
           <button id = 'characterButton' className = 'characterButton'><Link to="/Characters">Characters</Link></button>
         </div>
       </nav>
-
+      
         <Switch>
           <Route path="/Characters">
             <Characters/>
@@ -25,8 +26,10 @@ const App = () => {
             <Home />
           </Route>
         </Switch>
+        
 
     </div>
+    </Router>
   );
 };
 export default App;
