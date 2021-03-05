@@ -8,13 +8,15 @@ const App = () => {
   return (
     <Router>
     <div>
-      <h1 className = 'mainHeader'>My Hero Academia</h1>
-
+      <div className = 'mainHeader'/>
+      <Router>
       <nav>
-        <div className='navLinks'>
+        <div className='Banner'>
+          <div className='navLinks'>
           {/* Links to navigate us Home (`/`) and Characters (`/Characters`) */}
           <button id = 'homeButton' className = 'homeButton'><Link to="/">Home </Link></button>
           <button id = 'characterButton' className = 'characterButton'><Link to="/Characters">Characters</Link></button>
+          </div>
         </div>
       </nav>
       
@@ -26,8 +28,7 @@ const App = () => {
             <Home />
           </Route>
         </Switch>
-        
-
+</Router>
     </div>
     </Router>
   );
