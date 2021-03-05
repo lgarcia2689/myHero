@@ -6,6 +6,7 @@ import './App.css'
 
 const App = () => {
   return (
+    <Router>
     <div>
       <div className = 'mainHeader'/>
       <Router>
@@ -18,7 +19,7 @@ const App = () => {
           </div>
         </div>
       </nav>
-
+      
         <Switch>
           <Route path="/Characters">
             <Characters/>
@@ -27,8 +28,9 @@ const App = () => {
             <Home />
           </Route>
         </Switch>
-        </Router>
+</Router>
     </div>
+    </Router>
   );
 };
 export default App;
