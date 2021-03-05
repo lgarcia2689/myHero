@@ -15,7 +15,7 @@ export default function Home() {
       <div className='home-wrapper'>
         <button
           onClick={routeToCharacters}
-          className='md-button shop-button'
+          className='button'
         >
           View Characters!
         </button>
